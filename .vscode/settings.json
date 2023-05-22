@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "109.106.240.4",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "Projet bd",
+            "database": "u771965123_babystore",
+            "username": "u771965123_babystore",
+            "askForPassword": true
+        }
+    ]
+}

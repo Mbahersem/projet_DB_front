@@ -1,95 +1,139 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import './style.css';
+
+
+function Header() {
+  return(
+    <header className="header">
+      <div>
+        <span>🙍🏾 {}</span>
+      </div>
+      <div>
+        <span>Deconnexion 🚪</span>
+      </div>
+    </header>
+  );
+}
+
+function NavBar() {
+  return(
+    <nav className="navbar">
+      <ul>
+        <li>🏠 Facturation</li>
+        <li>🧮 Catégories</li>
+        <li>📅 Produits</li>
+        <li>❔ A propos</li>
+      </ul>
+    </nav>
+  );
+}
+
+function Menu() {
+    
+    return(
+      <div className="menu-container">
+      <div className="item1">
+        <span>📞 </span>
+        <input type="text" placeholder="Téléphone Client" />
+      </div>
+      <div className="item2">
+        <span>Mode de paiement : </span>
+        <input type="checkbox" name="cash" id="cash" />
+        <label htmlFor="cash">  Cash :</label>
+      </div>
+      <div className="item3">
+      <span>✏️ </span>
+        <input type="text" placeholder="Code Produit " />
+      </div>
+      <div className="item4">
+        <span>Quantité </span>
+        <input type="text" />
+      </div>
+      <div className="item5">
+        <span>➖ </span>
+        <input type="text" placeholder="Remise Max=40.0" />
+        <span>%</span>
+      </div>
+      <div className="item6">
+        <span>Quantité en Stock :</span>
+        <span> {} </span>
+        <button className='btn-add'>+</button>
+      </div>
+    </div>
+  );
+}
+
+function MenuFooter() {
+  return(
+    <div className="menu-footer-container">
+      <div>
+        <span>Total (Fcfa) :</span>
+        <span> {}</span>
+      </div>
+      <div>
+        <span>Net A Payer (Fcfa) :</span>
+        <span> {}</span>
+      </div>
+      <div>
+        <input type="text" placeholder="Montant remis" />
+        <span>Reliquat :</span>
+        <span> {}</span>
+      </div>
+    </div>
+  );
+}
+
+function Table() {
+  return(
+    <div className='table'>
+      <table>
+        <tr>
+          <th>Code Produit</th>
+          <th>Prix Unitaire</th>
+          <th>Quantité</th>
+          <th>Sous-Total</th>
+        </tr>
+      </table>
+    </div>
+  );
+}
+
+function Footer() {
+  return(
+    <footer>
+      <div>
+        <button>Recette Journalière</button>
+      </div>
+      <div className='four-buttons'>
+        <button className = "btn-supp">Supprimer</button>
+        <button>Annuler</button>
+        <button>Aperçu</button>
+        <button>Valider</button>
+
+      </div>
+    </footer>
+  );
+}
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+
+  const baseTest = [
+    {codePro:100414, prixUni: 10500},
+    {codePro:100757, prixUni: 10000},
+    {codePro:100884, prixUni: 7500}
+  ];
+
+  return(
+    <div className="home">
+      <Header />
+      <NavBar />
+      <div className='facture'>
+        <Menu />
+        <div className="afficher"></div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <hr />
+      <MenuFooter />
+      <Table />
+      <Footer />
+    </div>
+  );
 }
